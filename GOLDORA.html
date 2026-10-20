@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b0b0b">
+<title>GOLDORA — Buy, Sell, Discover</title>
+<style>
+:root{--bg:#0b0b0b;--panel:#141414;--panel2:#1c1c1c;--gold:#d7b45a;--gold2:#f4dc91;--muted:#aaa;--line:#34302a;--text:#f7f4ec}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px/1.5 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.wrap{max-width:1180px;margin:auto;padding:0 18px}.top{position:sticky;top:0;z-index:10;background:#0b0b0bf2;border-bottom:1px solid var(--line);backdrop-filter:blur(12px)}.nav{display:flex;align-items:center;gap:14px;min-height:72px;flex-wrap:wrap}.brand{font-weight:900;font-size:23px;letter-spacing:1.5px;color:var(--gold2);white-space:nowrap}.brand small{display:block;font-size:9px;letter-spacing:3px;color:#ddd;font-weight:600}.search{display:flex;flex:1;min-width:190px}.search input{border-radius:10px 0 0 10px}.search button{border-radius:0 10px 10px 0}.btn{border:1px solid var(--gold);background:var(--gold);color:#111;padding:10px 15px;border-radius:10px;font-weight:800}.btn:hover{background:var(--gold2)}.btn.ghost{background:transparent;color:var(--gold2)}.btn.danger{border-color:#a84747;background:#8d2828;color:white}.btn.small{padding:6px 10px;font-size:13px}.hero{padding:38px 0 26px;background:radial-gradient(ellipse at 80% 20%,#4b391b55,transparent 45%)}.eyebrow{color:var(--gold);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:12px}.hero h1{font-size:clamp(30px,5vw,54px);line-height:1.05;margin:10px 0}.hero p{color:#c4c0b6;max-width:650px}.stats{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.chip{border:1px solid #5e4c25;border-radius:999px;padding:7px 11px;color:#e6d5a6;font-size:13px}.toolbar{display:grid;grid-template-columns:1fr 180px 170px 140px;gap:10px;margin:16px 0 20px}.field, input,select,textarea{width:100%;border:1px solid #3a3833;background:#111;color:var(--text);padding:11px 12px;border-radius:10px;outline:none}.field:focus,input:focus,select:focus,textarea:focus{border-color:var(--gold)}.section-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:22px 0 12px}.section-head h2{font-size:21px;margin:0}.muted{color:var(--muted)}.cats{display:flex;gap:8px;overflow:auto;padding:2px 0 12px}.cat{border:1px solid var(--line);border-radius:999px;padding:8px 13px;background:#141414;color:#ddd;white-space:nowrap}.cat.active,.cat:hover{border-color:var(--gold);color:var(--gold2);background:#332814}.grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;overflow:hidden;min-width:0}.photo{width:100%;height:180px;object-fit:cover;background:#202020;display:block}.no-photo{height:180px;display:grid;place-items:center;background:linear-gradient(135deg,#222,#100f0d);color:#8d7b4c;font-size:42px}.cardbody{padding:13px}.price{font-size:20px;font-weight:900;color:var(--gold2);margin:6px 0}.title{font-weight:750;font-size:16px;overflow-wrap:anywhere}.meta{font-size:12px;color:#aaa;display:flex;justify-content:space-between;gap:6px;margin-top:10px}.card-actions{display:flex;gap:7px;margin-top:12px}.card-actions .btn{flex:1;text-align:center;padding:8px 7px;font-size:13px;text-decoration:none}.empty{padding:40px 16px;text-align:center;color:#aaa;border:1px dashed #45403a;border-radius:14px}.hidden{display:none!important}.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px;margin:22px 0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formgrid .full{grid-column:1/-1}label{display:block;font-size:13px;color:#d4c9ab;margin-bottom:5px}textarea{resize:vertical;min-height:100px}.modal{position:fixed;inset:0;background:#000c;display:grid;place-items:center;z-index:30;padding:18px}.modalbox{width:min(500px,100%);max-height:90vh;overflow:auto;background:#151515;border:1px solid #66552c;border-radius:18px;padding:22px}.modalbox h2{margin-top:0}.close{float:right;background:none;color:#fff;border:0;font-size:25px}.message{padding:10px;border-radius:10px;background:#2b2415;color:#f2d98d;margin:10px 0}.footer{border-top:1px solid var(--line);margin-top:50px;padding:25px 0;color:#aaa;font-size:13px}.notice{font-size:12px;color:#aaa;margin-top:10px}.badge{font-size:11px;color:#111;background:var(--gold);border-radius:5px;padding:3px 6px;font-weight:800}
+@media(max-width:900px){.grid{grid-template-columns:repeat(3,minmax(0,1fr))}.toolbar{grid-template-columns:1fr 1fr}.nav .search{order:3;flex-basis:100%}}
+@media(max-width:600px){.wrap{padding:0 12px}.nav{padding:10px 0}.brand{font-size:20px}.nav .btn{padding:9px 10px}.hero{padding-top:28px}.grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}.photo,.no-photo{height:135px}.cardbody{padding:10px}.title{font-size:14px}.price{font-size:17px}.card-actions{flex-direction:column}.formgrid{grid-template-columns:1fr}.formgrid .full{grid-column:auto}.toolbar{grid-template-columns:1fr 1fr}.toolbar input:first-child{grid-column:1/-1}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap nav">
+  <a href="#" class="brand" style="text-decoration:none">GOLDORA<small>BUY • SELL • DISCOVER</small></a>
+  <div class="search"><input id="searchTop" placeholder="Search phones, bikes, furniture..." aria-label="Search listings"><button class="btn" id="searchBtn">Search</button></div>
+  <button class="btn ghost" id="loginBtn">Login</button><button class="btn" id="postBtn">＋ Post Ad</button>
+</div></header>
+<main class="wrap">
+<section class="hero">
+  <div class="eyebrow">Sri Lanka's community marketplace</div>
+  <h1>Find it. Sell it.<br><span style="color:var(--gold2)">Make a deal.</span></h1>
+  <p>Discover great deals near you, or turn things you no longer need into cash. Buyers and sellers connect directly.</p>
+  <div class="stats"><span class="chip">✦ Free to get started</span><span class="chip">⌖ Islandwide listings</span><span class="chip">↔ Direct buyer–seller contact</span></div>
+</section>
+<div class="section-head"><h2>Browse categories</h2><span class="muted" id="resultCount">Loading listings…</span></div>
+<div class="cats" id="categories"></div>
+<div class="toolbar">
+  <input id="searchInput" placeholder="Search title or description">
+  <select id="districtFilter"><option value="">All districts</option></select>
+  <select id="sortFilter"><option value="new">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select>
+  <input id="maxPrice" type="number" min="0" placeholder="Max price (Rs.)">
+</div>
+<div class="section-head"><h2 id="listingHeading">Latest ads</h2><button class="btn ghost small" id="clearFilters">Clear filters</button></div>
+<div id="listingGrid" class="grid"></div>
+<div id="emptyState" class="empty hidden">No ads match your search yet. Try another category or search term.</div>
+<section id="myAdsSection" class="panel hidden"><div class="section-head"><h2>My ads</h2><span class="muted">Manage your listings</span></div><div id="myAds" class="grid"></div></section>
+<section class="panel"><h2 style="margin-top:0">Sell something today</h2><p class="muted">Create an account, upload photos, set your price and let buyers contact you directly.</p><button class="btn" id="postBottom">Post your free ad</button><p class="notice">Safety tip: Meet in a public place, inspect items before paying, and never share OTPs or passwords.</p></section>
+</main>
+<footer class="footer"><div class="wrap">© <span id="year"></span> GOLDORA · Buy, Sell, Discover. <span style="float:right">Made for Sri Lanka 🇱🇰</span><p class="notice">GOLDORA is a proposed brand name. Confirm name and domain availability before launch.</p></div></footer>
+
+<div class="modal hidden" id="authModal"><div class="modalbox"><button class="close" data-close="authModal">×</button><h2 id="authTitle">Welcome back</h2><p class="muted" id="authSub">Sign in to manage ads.</p><div id="authMessage" class="message hidden"></div><form id="authForm"><label>Email address</label><input id="authEmail" type="email" required autocomplete="email" placeholder="you@example.com"><label style="margin-top:12px">Password</label><input id="authPassword" type="password" required minlength="6" autocomplete="current-password" placeholder="At least 6 characters"><button class="btn" style="width:100%;margin-top:16px" id="authSubmit">Login</button></form><p><button class="btn ghost" id="toggleAuth">Create a new account</button></p><p class="notice">Use an email you can access. For production, add email verification and password reset.</p></div></div>
+
+<div class="modal hidden" id="adModal"><div class="modalbox"><button class="close" data-close="adModal">×</button><h2>Post an ad</h2><p class="muted">Your ad will be visible to everyone after it is saved.</p><div id="adMessage" class="message hidden"></div>
+<form id="adForm"><div class="formgrid">
+<div class="full"><label>Ad title *</label><input id="adTitle" required maxlength="90" placeholder="e.g. Samsung Galaxy phone"></div>
+<div><label>Category *</label><select id="adCategory" required></select></div>
+<div><label>Price in LKR (Rs.) *</label><input id="adPrice" type="number" min="0" step="1" required placeholder="25000"></div>
+<div><label>District *</label><select id="adDistrict" required></select></div>
+<div><label>Condition</label><select id="adCondition"><option>Used</option><option>Brand new</option><option>Like new</option><option>Refurbished</option></select></div>
+<div class="full"><label>Description *</label><textarea id="adDescription" required maxlength="3000" placeholder="Describe the item, condition and any important details"></textarea></div>
+<div class="full"><label>Photos (up to 4 images) *</label><input id="adPhotos" type="file" accept="image/*" multiple required><div class="notice">Images are uploaded to your configured Cloudinary account. Do not upload private documents.</div></div>
+<div class="full"><label>WhatsApp number (Sri Lankan number) *</label><input id="adPhone" required inputmode="tel" placeholder="0771234567"></div>
+<div class="full"><label><input id="adTerms" type="checkbox" required style="width:auto"> I confirm this listing is lawful and the details are accurate.</label></div>
+<div class="full"><button class="btn" id="saveAdBtn" style="width:100%">Upload photos & publish ad</button></div>
+</div></form></div></div>
+<div class="modal hidden" id="detailModal"><div class="modalbox"><button class="close" data-close="detailModal">×</button><div id="detailContent"></div></div></div>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+import { getFirestore, collection, addDoc, getDocs, query, orderBy, where, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
+
+/* STEP 1: Replace these placeholders with your Firebase project's web config. */
+const firebaseConfig = {
+  apiKey: "AIzaSyDCyfSJ4xHRKdOpl_2LaSlChruAePWEx_Q",
+  authDomain: "goaldora.firebaseapp.com",
+  projectId: "goaldora",
+  appId: "1:384534868888:web:b2d295248d3bcd8267b1ed"
+};
+/* STEP 2: Set your Cloudinary cloud name and an UNSIGNED upload preset.
+   Never put a Cloudinary API secret or Firebase Admin credentials in this file. */
+cgoldora_uploads
+
+const categories = ["All categories","Phones & Tablets","Computers","Electronics","Vehicles","Home & Garden","Furniture","Fashion","Audio Equipment","Sports & Hobbies","Property","Other"];
+const districts = ["Ampara","Anuradhapura","Badulla","Batticaloa","Colombo","Galle","Gampaha","Hambantota","Jaffna","Kalutara","Kandy","Kegalle","Kilinochchi","Kurunegala","Mannar","Matale","Matara","Monaragala","Mullaitivu","Nuwara Eliya","Polonnaruwa","Puttalam","Ratnapura","Trincomalee","Vavuniya"];
+let app, auth, db, currentUser = null, allAds = [], selectedCategory = "All categories", authMode = "login";
+const $ = id => document.getElementById(id);
+const configReady = !firebaseConfig.apiKey.startsWith("PASTE_") && !firebaseConfig.projectId.startsWith("YOUR_");
+goldora_uploads
+function populateSelect(id, items, firstLabel) {
+  const el = $(id); el.innerHTML = "";
+  items.forEach((v,i) => { const op=document.createElement("option"); op.value=(id==="districtFilter"&&i===0)?"":v; op.textContent=(id==="districtFilter"&&i===0)?firstLabel:v; el.appendChild(op); });
+}
+function initCategories(){
+  const bar=$("categories"); bar.innerHTML="";
+  categories.forEach(cat=>{const b=document.createElement("button");b.className="cat"+(cat===selectedCategory?" active":"");b.textContent=cat;b.onclick=()=>{selectedCategory=cat;initCategories();renderAds()};bar.appendChild(b)});
+  populateSelect("adCategory",categories.slice(1));
+  populateSelect("districtFilter",["All districts",...districts],"All districts");
+  populateSelect("adDistrict",districts);
+}
+initCategories();
+
+if(configReady){
+  try {
+    app=initializeApp(firebaseConfig); auth=getAuth(app); db=getFirestore(app);
+    onAuthStateChanged(auth, user=>{currentUser=user; updateAuthButton(); loadAds();});
+  } catch(e){ console.error(e); showSetupWarning(); }
+} else { showSetupWarning(); renderAds(); }
+function showSetupWarning(){
+  $("resultCount").textContent="Setup needed";
+  $("emptyState").classList.remove("hidden");
+  $("emptyState").textContent="Website preview is ready. To enable real accounts and shared ads, complete the Firebase and Cloudinary setup steps below the code.";
+}
+function updateAuthButton(){
+  $("loginBtn").textContent=currentUser ? "Logout" : "Login";
+  $("myAdsSection").classList.toggle("hidden",!currentUser);
+}
+function openModal(id){$(id).classList.remove("hidden")}
+function closeModal(id){$(id).classList.add("hidden")}
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>closeModal(b.dataset.close));
+["authModal","adModal","detailModal"].forEach(id=>$(id).addEventListener("click",e=>{if(e.target.id===id)closeModal(id)}));
+$("loginBtn").onclick=async()=>{if(currentUser){await signOut(auth);return} authMode="login"; updateAuthMode();openModal("authModal")};
+$("toggleAuth").onclick=()=>{authMode=authMode==="login"?"signup":"login";updateAuthMode()};
+function updateAuthMode(){ $("authTitle").textContent=authMode==="login"?"Welcome back":"Create your account";$("authSub").textContent=authMode==="login"?"Sign in to manage ads.":"Create an account to publish and manage ads."; $("authSubmit").textContent=authMode==="login"?"Login":"Create account";$("toggleAuth").textContent=authMode==="login"?"Create a new account":"I already have an account";$("authMessage").classList.add("hidden");}
+$("authForm").onsubmit=async e=>{
+ e.preventDefault(); if(!configReady){alert("Complete Firebase setup first.");return}
+ const email=$("authEmail").value.trim(),password=$("authPassword").value;
+ $("authSubmit").disabled=true;
+ try{if(authMode==="signup")await createUserWithEmailAndPassword(auth,email,password);else await signInWithEmailAndPassword(auth,email,password);closeModal("authModal");$("authForm").reset()}
+ catch(err){$("authMessage").textContent=authError(err.code);$("authMessage").classList.remove("hidden")}
+ finally{$("authSubmit").disabled=false}
+};
+function authError(code){return ({ "auth/email-already-in-use":"That email already has an account.","auth/invalid-email":"Please enter a valid email.","auth/weak-password":"Use a stronger password with at least 6 characters.","auth/invalid-credential":"Email or password is incorrect.","auth/network-request-failed":"Network error. Check your connection."})[code]||"Could not sign in: "+code}
+$("postBtn").onclick=$("postBottom").onclick=()=>{if(!currentUser){authMode="login";updateAuthMode();openModal("authModal");return}if(!cloudReady){alert("Complete Cloudinary setup before uploading photos.");return} $("adForm").reset();$("adMessage").classList.add("hidden");openModal("adModal")};
+
+async function loadAds(){
+ if(!db){allAds=JSON.parse(localStorage.getItem("goldoraDemoAds")||"[]");renderAds();return}
+ try{const snap=await getDocs(query(collection(db,"ads"),orderBy("createdAt","desc")));allAds=snap.docs.map(d=>({id:d.id,...d.data()}));renderAds()}
+ catch(e){console.error(e);$("resultCount").textContent="Could not load ads";$("emptyState").classList.remove("hidden");$("emptyState").textContent="Could not load listings. Check Firestore setup and security rules."}
+}
+function formatPrice(n){return "Rs. "+Number(n||0).toLocaleString("en-LK")}
+function safe(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function filteredAds(){
+ const term=$("searchInput").value.trim().toLowerCase(),district=$("districtFilter").value,max=Number($("maxPrice").value||0);
+ let list=allAds.filter(a=>(selectedCategory==="All categories"||a.category===selectedCategory)&&(!district||a.district===district)&&(!max||Number(a.price)<=max)&&(!term||(a.title+" "+a.description+" "+a.category).toLowerCase().includes(term)));
+ const sort=$("sortFilter").value;
+ if(sort==="low")list.sort((a,b)=>Number(a.price)-Number(b.price));
+ if(sort==="high")list.sort((a,b)=>Number(b.price)-Number(a.price));
+ if(sort==="new")list.sort((a,b)=>timestamp(b)-timestamp(a));
+ return list;
+}
+function timestamp(a){if(!a)return 0;if(typeof a==="number")return a;if(a.seconds)return a.seconds*1000;return Date.parse(a)||0}
+function renderAds(){
+ const list=filteredAds();$("resultCount").textContent=`${list.length} ad${list.length===1?"":"s"}`;$("listingGrid").innerHTML="";
+ $("emptyState").classList.toggle("hidden",list.length>0);
+ list.forEach(a=>$("listingGrid").appendChild(makeCard(a,false)));
+ if(currentUser){const mine=allAds.filter(a=>a.ownerUid===currentUser.uid);$("myAds").innerHTML="";mine.forEach(a=>$("myAds").appendChild(makeCard(a,true)));$("myAdsSection").classList.toggle("hidden",!currentUser)}
+}
+function makeCard(a,own){
+ const card=document.createElement("article");card.className="card";
+ const img=(a.images||[])[0];card.innerHTML=`${img?`<img class="photo" loading="lazy" src="${safe(img)}" alt="${safe(a.title)}">`:`<div class="no-photo">◇</div>`}
+ <div class="cardbody"><div class="eyebrow" style="letter-spacing:.7px">${safe(a.category||"Other")}</div><div class="title">${safe(a.title)}</div><div class="price">${formatPrice(a.price)}</div><div class="meta"><span>⌖ ${safe(a.district||"Sri Lanka")}</span><span>${safe(a.condition||"Used")}</span></div>
+ <div class="card-actions"><button class="btn" data-detail>View ad</button>${own?`<button class="btn danger" data-delete>Delete</button>`:""}</div></div>`;
+ card.querySelector("[data-detail]").onclick=()=>showDetails(a);
+ if(own)card.querySelector("[data-delete]").onclick=()=>removeAd(a);
+ return card;
+}
+function showDetails(a){
+ const digits=String(a.phone||"").replace(/\D/g,"");let wa=digits;
+ if(wa.startsWith("0"))wa="94"+wa.slice(1); else if(!wa.startsWith("94"))wa="94"+wa;
+ $("detailContent").innerHTML=`<div class="eyebrow">${safe(a.category)}</div><h2>${safe(a.title)}</h2><div class="price">${formatPrice(a.price)}</div><p class="muted">⌖ ${safe(a.district)} · ${safe(a.condition||"Used")}</p>${(a.images||[]).map(url=>`<img src="${safe(url)}" alt="${safe(a.title)}" style="width:100%;max-height:300px;object-fit:contain;background:#080808;border-radius:10px;margin:5px 0">`).join("")}<p style="white-space:pre-wrap">${safe(a.description)}</p><p class="notice">Seller: ${safe(a.sellerEmail||"Marketplace seller")}</p><div class="card-actions"><a class="btn" style="text-decoration:none;text-align:center" target="_blank" rel="noopener noreferrer" href="https://wa.me/${encodeURIComponent(wa)}?text=${encodeURIComponent("Hi, I'm interested in your GOLDORA ad: "+a.title)}">Contact on WhatsApp</a><a class="btn ghost" style="text-decoration:none;text-align:center" href="tel:${safe(a.phone||"")}">Call seller</a></div><p class="notice">Never send advance payments to unknown sellers. Inspect the item and meet safely.</p>`;
+ openModal("detailModal");
+}
+async function removeAd(a){
+ if(!currentUser||a.ownerUid!==currentUser.uid){alert("You can only delete your own ads.");return}
+ if(!confirm("Delete this ad?"))return;
+ try{if(db)await deleteDoc(doc(db,"ads",a.id));else{allAds=allAds.filter(x=>x.id!==a.id);localStorage.setItem("goldoraDemoAds",JSON.stringify(allAds))}await loadAds()}
+ catch(e){alert("Could not delete ad. Check Firestore rules.");console.error(e)}
+}
+$("adForm").onsubmit=async e=>{
+ e.preventDefault();if(!currentUser){alert("Please login first.");return}
+ if(!configReady||!db){alert("Complete Firebase setup first.");return}
+ if(!cloudReady){alert("Complete Cloudinary setup first.");return}
+ const files=Array.from($("adPhotos").files);
+ if(!files.length||files.length>4){$("adMessage").textContent="Choose between 1 and 4 photos.";$("adMessage").classList.remove("hidden");return}
+ if(files.some(f=>!f.type.startsWith("image/")||f.size>8*1024*1024)){$("adMessage").textContent="Each photo must be an image under 8 MB.";$("adMessage").classList.remove("hidden");return}
+ let phone=$("adPhone").value.trim().replace(/[^\d+]/g,"");
+ if(!/^(\+?94|0)?7\d{8}$/.test(phone)){$("adMessage").textContent="Enter a valid Sri Lankan mobile number, e.g. 0771234567 or +94771234567.";$("adMessage").classList.remove("hidden");return}
+ const btn=$("saveAdBtn");btn.disabled=true;btn.textContent="Uploading photos…";$("adMessage").classList.remove("hidden");$("adMessage").textContent="Please keep this page open while photos upload.";
+ try{
+   CLOUDINARY_CLOUD_NAME
+["searchInput","districtFilter","sortFilter","maxPrice"].forEach(id=>$(id).addEventListener("input",renderAds));
+$("searchBtn").onclick=()=>{$("searchInput").value=$("searchTop").value;renderAds();$("listingHeading").scrollIntoView({behavior:"smooth"})};
+$("searchTop").addEventListener("keydown",e=>{if(e.key==="Enter")$("searchBtn").click()});
+$("clearFilters").onclick=()=>{$("searchInput").value="";$("searchTop").value="";$("districtFilter").value="";$("sortFilter").value="new";$("maxPrice").value="";selectedCategory="All categories";initCategories();renderAds()};
+</script>
+</body>
+</html>
